@@ -1,15 +1,21 @@
-. ~/.zsh/aliases
+alias dream_proxy='echo "tell your browser to use localhost:8080 as a socks5 proxy,
+as long as you keep this ssh window open you can use iamryanshaw.com as a proxy 
+(command is: ssh iamryanshaw.com -D 8080)" & 
+ssh iamryanshaw.com -D 8080'
 
-# changing directory to code project
-function c { cd ~/code/$1; }
+# Set Aliases
+alias ls='ls -G'
+alias l='ls -G'
+alias la='ls -AlhG'
+alias m='mate'
+# Rails aliases
+# alias ss='script/server'
+alias ss="unicorn_rails -p 3000"
+alias ssd='script/server --debugger'
+alias sc='script/console --debugger'
+alias migrate='rake db:migrate'
+alias sg='script/generate'
 
-# alternative to "rails" command to use templates
-function railsapp {
-  template=$1
-  appname=$2
-  shift 2
-  rails $appname -m http://github.com/ryanb/rails-templates/raw/master/$template.rb $@
-}
+alias g="git"
 
-# misc
-alias reload='. ~/.bash_profile'
+alias gittrash="git stash && git stash drop"

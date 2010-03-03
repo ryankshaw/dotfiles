@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# From http://freelancing-gods.com/posts/script_nginx
+
+echo "Starting Phusion Passenger via Nginx in `pwd`:"
+
+# Make directories if needed
+[ ! -d `pwd`/tmp ] && mkdir `pwd`/tmp
+[ ! -d `pwd`/log ] && mkdir `pwd`/log
+
+# this sets the right passenger_root and passenger_ruby in nginx_here.conf based on our RVM environment.
+sed -e "s,put_path_to_passenger_root_here,`passenger-config --root`," \
+    -e "s,put_path_to_passenger_ruby_here,`which ruby`," \
+    /Users/ryan/bin/nginx_here.example.conf > /Users/ryan/bin/nginx_here.conf
+
+/Users/ryan/bin/nginx/sbin/nginx -p `pwd`/ -c /Users/ryan/bin/nginx_here.conf -g "error_log `pwd`/log/nginx.error.log; pid `pwd`/log/nginx.pid;";

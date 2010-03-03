@@ -1,0 +1,29 @@
+[user]
+	name = Ryan Shaw
+	email = ryankshaw@gmail.com
+[gui]
+	matchtrackingbranch = true
+	pruneduringfetch = true
+	fontui = -family Tahoma -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+	recentrepo = /Users/timcharper/www/market
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  c = commit -m
+  a = add
+  pl = pull
+  ps = push
+  plre = pull --rebase
+  st = status
+  out = log origin..HEAD
+[core]
+  excludesfile = /Users/ryan/.gitignore
+  editor = mate -w
+[apply]
+  whitespace = nowarn
+[push]
+	default = tracking
+[github]
+	user = ryankshaw

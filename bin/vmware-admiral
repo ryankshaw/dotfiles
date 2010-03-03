@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh -X -f -q 192.168.0.2 /home/instructure/.mozilla/firefox/ipazz4bs.default/extensions/VMwareVMRC@vmware.com/plugins/vmware-vmrc -h "127.0.0.1:8333"
