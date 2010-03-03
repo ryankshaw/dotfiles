@@ -2,12 +2,14 @@
 require 'irb/completion'
 ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
 
-%w[rubygems looksee/shortcuts].each do |gem|
+%w[rubygems looksee/shortcuts tempfile].each do |g|
   begin
-    require gem
-  rescue LoadError
+    require g
+  rescue LoadError  => err
+     warn "Couldn't load #{g}: #{err}"
   end
 end
+
 begin
   # load wirble
   require 'wirble'
@@ -15,7 +17,8 @@ begin
   # start wirble (with color)
   Wirble.init
   Wirble.colorize
-  rescue LoadError
+rescue LoadError => err
+  warn "Couldn't load Wirble: #{err}"
 end
 
 class Object
@@ -85,13 +88,6 @@ if defined? Benchmark
   end
 end
 
-
-
-
-
-
-
-require 'tempfile'
  
 # This module adds a method, #to_file, which dumps the contents of self into a
 # temp file and then returns the path of that file. This is particularly useful
@@ -132,7 +128,6 @@ end
 
 
 # Giles Bowkett, Greg Brown, and several audience members from Giles' Ruby East presentation.
-require 'tempfile'
 class InteractiveEditor
   DEBIAN_SENSIBLE_EDITOR = "/usr/bin/sensible-editor"
   MACOSX_OPEN_CMD = "open"
