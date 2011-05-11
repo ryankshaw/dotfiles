@@ -9,8 +9,8 @@ alias l='ls -G'
 alias la='ls -AlhG'
 alias m='mate'
 # Rails aliases
-# alias ss='script/server'
-alias ss="unicorn_rails -p 3000"
+alias ss='script/server'
+# alias ss="unicorn_rails -p 3000"
 alias ssd='script/server --debugger'
 alias sc='script/console --debugger'
 alias migrate='rake db:migrate'
@@ -19,3 +19,4 @@ alias sg='script/generate'
 alias g="git"
 
 alias gittrash="git stash && git stash drop"
+alias c='cd ~/Work/instructure/canvas-lms'

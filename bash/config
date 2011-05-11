@@ -16,6 +16,7 @@ export PATH=/opt/local/lib/postgresql84/bin:$PATH
 
 # changing directory to code project
 function w { cd ~/Work/$1; }
+export PATH="~/bin:$PATH"
 
 # function to change directory to the one set in the last opened finder.
 function cdf () {
